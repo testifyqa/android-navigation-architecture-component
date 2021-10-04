@@ -21,7 +21,8 @@ class HomeFragment : Fragment() {
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         binding.button.setOnClickListener {
-            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment)
+            val bundle = bundleOf("user_input" to binding.editText.text.toString())
+            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment, bundle)
         }
         return binding.root
     }
